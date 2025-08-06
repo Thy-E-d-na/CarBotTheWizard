@@ -30,7 +30,7 @@
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -102,7 +102,7 @@
                     "id": "dfc28ba9-619c-4434-afa1-102a9c744478",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold(duration=3,pressPoint=0.2)",
+                    "interactions": "Hold(duration=4,pressPoint=1)",
                     "initialStateCheck": true
                 }
             ],
