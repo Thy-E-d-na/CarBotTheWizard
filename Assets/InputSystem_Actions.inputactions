@@ -102,7 +102,7 @@
                     "id": "dfc28ba9-619c-4434-afa1-102a9c744478",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold(duration=4,pressPoint=1)",
+                    "interactions": "Hold(duration=4,pressPoint=2)",
                     "initialStateCheck": true
                 }
             ],

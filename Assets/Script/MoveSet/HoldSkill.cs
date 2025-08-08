@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HoldSkill : MonoBehaviour
@@ -10,7 +9,8 @@ public class HoldSkill : MonoBehaviour
     [SerializeField] private GameObject _skillVfx;
     [SerializeField] Slider _skillChargeSlider;
     [SerializeField] private Transform chargePos;
-    public UnityEvent OnCast;
+    GameObject mag;
+
     public bool isCharging;
     public float chargingtime;
 
@@ -29,26 +29,24 @@ public class HoldSkill : MonoBehaviour
     void StartCharge(InputAction.CallbackContext context)
     {
         isCharging = true;
-        Instantiate(_skillVfx, chargePos);
+        mag = Instantiate(_skillVfx, chargePos);
         _skillChargeSlider.gameObject.SetActive(true);
-        _skillChargeSlider.value = 0;
-
     }
     void EndCharge(InputAction.CallbackContext context)
     {
         isCharging = false;
-        Destroy(_skillVfx);
-        Cast();
+        Destroy(mag.gameObject);
+        _skillChargeSlider.gameObject.SetActive(false);
     }
     private void Update()
     {
-       
+        if (isCharging && _skillChargeSlider.enabled)
+        {
+            float t = Time.time;
+            _skillChargeSlider.value = t;
+        }
         
     }
-    public void Cast()
-    {
-        OnCast?.Invoke();
-        _skillChargeSlider.gameObject.SetActive(false);
-    }
+   
 
 }
